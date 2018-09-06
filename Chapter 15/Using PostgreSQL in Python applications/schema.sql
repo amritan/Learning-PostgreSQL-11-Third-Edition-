@@ -1,3 +1,5 @@
+-- This should be executed using psql.
+
 CREATE ROLE car_portal_app LOGIN;
 
 DROP DATABASE IF EXISTS car_portal;
@@ -6,7 +8,7 @@ DROP DATABASE IF EXISTS car_portal;
 CREATE DATABASE car_portal ENCODING 'UTF-8' LC_COLLATE 'en_US.UTF-8' LC_CTYPE 'en_US.UTF-8' TEMPLATE template0 OWNER car_portal_app;
 
 -- For Windows:
-CREATE DATABASE car_portal ENCODING 'UTF-8' LC_COLLATE 'English_United States' LC_CTYPE 'English_United States' TEMPLATE template0 OWNER car_portal_app;
+-- CREATE DATABASE car_portal ENCODING 'UTF-8' LC_COLLATE 'English_United States' LC_CTYPE 'English_United States' TEMPLATE template0 OWNER car_portal_app;
 
 \c car_portal
 
@@ -87,9 +89,9 @@ CREATE TABLE advertisement_rating (
 	CHECK (rank IN (1,2,3,4,5))
 );
 
-CREATE TABLE favorite_ads(
+CREATE TABLE favorite_advertisement(
+	PRIMARY KEY (account_id,advertisement_id),
 	account_id INT NOT NULL REFERENCES account(account_id),
-	advertisement_id INT NOT NULL REFERENCES advertisement(advertisement_id),
-	primary key(account_id,advertisement_id)
+	advertisement_id INT NOT NULL REFERENCES advertisement(advertisement_id)
 );
 

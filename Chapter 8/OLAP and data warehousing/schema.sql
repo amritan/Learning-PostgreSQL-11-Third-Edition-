@@ -95,3 +95,8 @@ CREATE TABLE favorite_advertisement(
 	advertisement_id INT NOT NULL REFERENCES advertisement(advertisement_id)
 );
 
+
+CREATE SCHEMA dwh AUTHORIZATION car_portal_app;
+
+SET search_path to dwh;
+

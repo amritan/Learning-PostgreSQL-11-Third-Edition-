@@ -95,3 +95,16 @@ CREATE TABLE favorite_advertisement(
 	advertisement_id INT NOT NULL REFERENCES advertisement(advertisement_id)
 );
 
+
+-- The sample table for the chapter SQL Language 
+CREATE TABLE a 
+(
+	a_int INT,
+	a_text TEXT
+);
+
+CREATE TABLE b
+(
+	b_int INT UNIQUE,
+	b_text TEXT
+);
